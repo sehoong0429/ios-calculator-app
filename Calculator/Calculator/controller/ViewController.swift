@@ -17,4 +17,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
  
+    @IBAction func tappedOperatorButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedCalculateResultButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedACButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedCEButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedChangeSignButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func tappedOperandsButton(_ sender: UIButton) {
+    }
+    
+    
 }
