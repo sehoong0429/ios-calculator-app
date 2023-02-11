@@ -7,7 +7,8 @@
 4. [프로젝트 구조](#4-프로젝트-구조)
 5. [실행화면(기능 설명)](#5-실행-화면기능-설명)
 6. [트러블슈팅](#6-트러블-슈팅)
-7. [참고링크](#7-참고-링크)
+7. [개선사항](#7-개선사항)
+7. [참고링크](#8-참고-링크)
 
 <br/>
 
@@ -47,14 +48,6 @@
 * [class]] **InputManager**
     * ExpressionParser에 전달할 input을 관리하는 객체
 
-<br/>
-
-### View
-* [UIScrollView] **CalculateItemScrollView**
-    * 스크롤 화면을 넘어가는 데이터가 추가될 때마다 스크롤을 최하단으로 유지하는 기능
-
-* [UIStackView] **CalculcateItemStackView**
-    * subview의 추가/제거 기능
 <br/>
 
 ### Controller
@@ -111,9 +104,6 @@
 │   │   ├── InputManager
 │   │   ├── Operator
 │   │   └── ViewGenerator
-│   ├── Views
-│   │   ├── CalculateItemScrollView
-│   │   └── CalculateItemStackView
 │   ├── Info.plist
 │   ├── Assets
 │   └── Base
@@ -156,20 +146,21 @@
 
 <br/>
 
+## 7. 개선사항
 ### operand button IBAction 기능 추가
 저희는 리팩토링을 하면서 휴대폰에 계산기 기본 어플과 비슷하게 구현하려고 했습니다.
 계산기 앱에서는 계산 결과를 받은 뒤에 숫자만 입력하면 새로운 계산이 시작되고, 계산 결과를 받은 뒤에 연산자 기호를 입력하면 결과 값을 가지고 계산이 시작되는 부분을 확인했습니다.
 기존에는 결과 값을 받은 뒤에 숫자만 입력하면 숫자가 결과에 붙는 방식이었는데 이를 휴대폰 계산기앱 방식 그대로 수정하여 기능을 추가하게 되었습니다.
 
+* before
 ```swift
-// before
 @IBAction private func touchOperandButton(_ sender: UIButton) {
     guard let inputOperand = sender.currentTitle else { return }
     ...
 }
 ```
+* after
 ```swift
-// after
 @IBAction private func touchOperandButton(_ sender: UIButton) {
     guard let inputOperand = sender.currentTitle else { return }
     guard isFinishedCalculation == false else {
@@ -198,13 +189,10 @@ calculateItemStackView.add(currentItem)
 inputHandler.addInput(about: currentItem)
 ```
 
+<br/>
 
 
-
-    
-    
-
-## 7. 참고 링크
+## 8. 참고 링크
 - [Swift Language Guide - Protocols](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)
 - [야곰닷넷 - 오토레이아웃 정복하기](https://yagom.net/courses/autolayout/)
 - [야곰닷넷 - UnitTest 작성하기](https://yagom.net/courses/unit-test-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0/)
