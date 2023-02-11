@@ -177,14 +177,15 @@
 
 ### Typealias
 기존에 선언되어있는 타입에 새로운 별칭을 붙여 반복되어 사용되는 코드의 길이를 줄이고 가독성을 높이려고 사용했습니다. 
+* before
 ```swift
-//before
 calculateItemStackView.addCurrentItem(operator: currentOperator,
                                       operand: currentOperand)
 inputHandler.addInput(about: currentOperator, and: currentOperand)
-````
+```
+
+* after
 ```swift
-// after
 calculateItemStackView.add(currentItem)
 inputHandler.addInput(about: currentItem)
 ```
